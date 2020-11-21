@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //引入路由固定的模块
-import { Link, Switch, HashRouter, Route } from 'react-router-dom'
+import { Switch, HashRouter, Route } from 'react-router-dom'
 
 //引入用到的所有组件
 import Home from '../containers/Home'
@@ -8,6 +8,7 @@ import Search from '../containers/Search'
 import City from '../containers/City'
 import User from '../containers/User'
 import Detail from '../containers/Detail'
+import NotFound from '../containers/404'
 
 //带有路由功能的组件
 export default class Router extends Component {
@@ -19,7 +20,6 @@ export default class Router extends Component {
         {/* Switch中存放需要切换的组件 */}
         <Switch>
           {/* 使用Route模块 指定 哪个路径对应哪个组件 */}
-
           {/* exact: 绝对匹配 */}
           <Route exact path="/" component={Home} />
           {/* 默认是非精确匹配, 即这个路径能 匹配 /news/xxxx */}
@@ -27,6 +27,7 @@ export default class Router extends Component {
           <Route exact path="/search/:name/:age" component={Search} />
           <Route path="/city" component={City} />
           <Route path="/user" component={User} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </HashRouter>
     )
