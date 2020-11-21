@@ -10,12 +10,6 @@ import App from './containers/App'
 // import fn from './test/redux-demo'
 // fn()
 
-// 测试fetch的功能
-// import { getData, postData } from './fetch/test'
-import { getData, postData } from './fetch/data'
-getData()
-postData()
-
 const store = configureStore()
 
 ReactDOM.render(

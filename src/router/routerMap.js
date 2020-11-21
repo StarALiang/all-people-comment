@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //引入路由固定的模块
-import { Link, Switch, HashRouter, Route } from 'react-router-dom'
+import { Switch, HashRouter, Route } from 'react-router-dom'
 
 //引入用到的所有组件
 import Home from '../containers/Home'
