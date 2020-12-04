@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import HomeHeader from '../../components/HomeHeader/index'
+
 export default class index extends Component {
   constructor(props) {
     super(props)
@@ -8,6 +10,10 @@ export default class index extends Component {
   }
 
   render() {
-    return <div>Hello World!</div>
+    return (
+      <div>
+        <HomeHeader />
+      </div>
+    )
   }
 }

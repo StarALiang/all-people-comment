@@ -2,37 +2,33 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import RouterMap from '../router/routerMap'
+import Rout from '../router/routerMap'
 import LocalStore from '../utils/localStore'
 import { CITYNAME } from '../config/localStoreKey'
-import * as userInfoAction from '../actions/userinfo'
-export default class App extends Component {
+import * as userInfoActions from '../actions/userinfo'
+class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      initDone: false,
-    }
+    this.state = {}
   }
 
   render() {
     return (
-      <div>{this.state.initDone ? <RouterMap /> : <div>加载中...</div>}</div>
+      <div>
+        <Rout erMap />
+      </div>
     )
   }
 
   componentDidMount() {
+    // 从localStorage里，获取城市
     let cityName = LocalStore.getItem(CITYNAME)
     if (cityName == null) {
       cityName = '杭州'
     }
-    console.log(cityName)
-    LocalStore.setItem(CITYNAME, '北京')
-    setTimeout(() => {
-      this.setState({
-        initDone: true,
-      })
-    }, 3000)
+    // 将城市信息存储到 Redux 中，方法为异步
+    this.props.userInfoActions.updateCityName({ city: cityName })
   }
 }
 
@@ -41,7 +37,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  userInfoAction: bindActionCreators(userInfoAction, dispatch),
+  userInfoActions: bindActionCreators(userInfoActions, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
