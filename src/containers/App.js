@@ -10,18 +10,27 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      initDone: false,
+    }
   }
 
   render() {
     return (
       <div>
-        <Rout erMap />
+        {this.state.initDone ? <Rout erMap /> : '加载中...'}
+        {/* <Rout erMap /> */}
       </div>
     )
   }
 
   componentDidMount() {
+    const loadTimer = setTimeout(() => {
+      this.setState({
+        initDone: true,
+      })
+      clearTimeout(loadTimer)
+    }, 3000)
     // 从localStorage里，获取城市
     let cityName = LocalStore.getItem(CITYNAME)
     if (cityName == null) {

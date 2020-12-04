@@ -2,10 +2,18 @@
   "name": "all-people-comment",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "set PORT=8081 && react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3000/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "antd-mobile": "^2.3.4",
     "es6-promise": "^4.2.8",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -16,13 +24,11 @@
     "redux": "^4.0.5",
     "whatwg-fetch": "^3.4.1"
   },
-  "scripts": {
-    "start": "set PORT=8081 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.3",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.6"
   },
-  "proxy": "http://localhost:3000/",
   "browserslist": {
     "production": [
       ">0.2%",
