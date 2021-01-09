@@ -1,25 +1,35 @@
 import React, { Component } from 'react'
 
 import './style.scss'
-import { Button } from 'antd-mobile'
+import { SearchBar } from 'antd-mobile'
 
 export default class HemoHeader extends Component {
-  render() {
-    return (
-      <div className="header">
-        <div className="header-left">深圳</div>
-        <div className="header-center">
-          <input />
-        </div>
-        <div className="header-right">用户中心</div>
-        <button onClick={this.clickMe.bind(this)}>按钮</button>
-        <Button type="primary">ant design mobile</Button>
-      </div>
-    )
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: '',
+    }
   }
 
-  // 点击
-  clickMe() {
-    console.log('点击==>')
+  render() {
+    return (
+      <div id="header" className="flex-center-between">
+        <div className="header-left flex-center-between">
+          <p className="city-name">{this.props.cityName}</p>
+          <i className="iconfont icon-arrowdown"></i>
+        </div>
+        <div className="header-center">
+          <SearchBar
+            value={this.state.value}
+            placeholder="Search"
+            onChange={this.onChange}
+          />
+        </div>
+        <div className="header-right">
+          <i className="iconfont icon-yonghu"></i>
+        </div>
+      </div>
+    )
   }
 }

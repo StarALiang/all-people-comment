@@ -18,8 +18,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.initDone ? <Rout erMap /> : '加载中...'}
-        {/* <Rout erMap /> */}
+        {/* {this.state.initDone ? <Rout erMap /> : '加载中...'} */}
+        <Rout erMap />
       </div>
     )
   }
@@ -37,7 +37,7 @@ class App extends Component {
       cityName = '杭州'
     }
     // 将城市信息存储到 Redux 中，方法为异步
-    this.props.userInfoActions.updateCityName({ city: cityName })
+    this.props.userInfoActions.updateCityName({ cityName })
   }
 }
 

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import HomeHeader from '../../components/HomeHeader/index'
+import HomeHeader from '../../components/HomeHeader'
+import Category from '../../components/Category'
+import Ad from './subpage/Ad'
 
-export default class index extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
 
@@ -12,8 +15,22 @@ export default class index extends Component {
   render() {
     return (
       <div>
-        <HomeHeader />
+        <HomeHeader cityName={this.props.userinfo.cityName} />
+        <Category />
+        <Ad />
       </div>
     )
   }
+
+  componentDidMount() {
+    console.log(this.props.userinfo)
+  }
 }
+
+const mapStateToProps = (state) => ({
+  userinfo: state.userinfo,
+})
+
+const mapDispatchToProps = (dispatch) => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

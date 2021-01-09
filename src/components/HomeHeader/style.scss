@@ -1,0 +1,23 @@
+#header {
+  background-color: #d7083d;
+  color: #fff;
+  padding: 0 10px;
+  .header-left {
+    .city-name {
+      margin-right: 4px;
+    }
+  }
+  .header-center {
+    flex: 1;
+    .am-search {
+      background-color: initial;
+      padding: 0 10px;
+      .am-search-input {
+        border-radius: 14px;
+      }
+      .am-search-cancel {
+        display: none;
+      }
+    }
+  }
+}
